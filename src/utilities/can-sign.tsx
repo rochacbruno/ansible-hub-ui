@@ -10,12 +10,10 @@ export const canSign = ({ featureFlags }, namespace) => {
 };
 
 export const canSignEE = ({ featureFlags }, container) => {
-  const { can_create_signatures, signatures_enabled, container_signing } =
+  const { container_signing } =
     featureFlags || {};
 
   return (
-    can_create_signatures &&
-    signatures_enabled &&
     container_signing &&
     container.namespace.my_permissions.includes(
       'container.change_containernamespace',
